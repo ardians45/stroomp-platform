@@ -11,6 +11,7 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+! .env.example
 
 # Testing
 coverage
@@ -27,6 +28,8 @@ out/
 build
 dist
 
+# Solana / Anchor
+target/
 
 # Debug
 npm-debug.log*
@@ -36,3 +39,8 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+Thumbs.db
+
+# Editor Directories
+.vscode/
+.idea/
