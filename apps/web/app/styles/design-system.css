@@ -1,0 +1,129 @@
+:root {
+  /* Color tokens as specified in the design document with golden yellow accent */
+  --color-brand-primary: #FFD700; /* Bright golden yellow accent */
+  --color-background-main: #18181b; /* Charcoal main background */
+  --color-background-secondary: #242427; /* Secondary background */
+  --color-text-primary: #FFFFFF; /* Primary white text */
+  --color-text-secondary: #E0E0E0; /* Secondary light gray text */
+  --color-text-tertiary: #B0B0B0; /* Muted gray text */
+  --color-border: #404040; /* Border color */
+  --color-overlay: rgba(0, 0, 0, 0.5); /* Overlay for modals/darkening */
+  --color-success: #00c853;
+  --color-warning: #ffab00;
+  --color-error: #ff1744;
+  
+  /* Additional colors for better design system */
+  --color-background-card: #2d2d30;
+  --color-background-tertiary: #303035;
+  
+  /* Spacing system (based on 4px increments) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-xxxl: 48px;
+  --spacing-xxxxl: 56px;
+  
+  /* Typography */
+  --font-family-primary: 'Inter', 'Poppins', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-mono: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+  
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-xxl: 1.5rem; /* 24px */
+  --font-size-xxxl: 2rem; /* 32px */
+  --font-size-xxxxl: 2.5rem; /* 40px */
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-brand-primary), #ffaa33);
+  --gradient-secondary: linear-gradient(135deg, #6200ea, #ff4081);
+  --gradient-dark: linear-gradient(135deg, #1a1a2e, #16213e);
+  
+  /* Z-index scale for depth */
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+  
+  /* Modern motion settings */
+  --motion-reduce: reduce;
+}
+
+/* Apply dark theme by default with specified colors */
+html, body {
+  background-color: var(--color-background-main);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply dark theme by default with modern look */
+html, body {
+  background-color: var(--color-background-main);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for modern UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+:where(button, input, textarea, a):focus {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-background-tertiary);
+  border-radius: var(--border-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-primary);
+}

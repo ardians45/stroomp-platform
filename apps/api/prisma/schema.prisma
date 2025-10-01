@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  wallet    String   @unique
+  username  String?
+  createdAt DateTime @default(now())
+  
+  // Relations
+  streams     Stream[]
+  donationsFrom Donation[]
+  donationsTo   Donation[]
+}
+
+model Stream {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  category    String?
+  streamerId  String
+  isLive      Boolean  @default(false)
+  viewerCount Int      @default(0)
+  createdAt   DateTime @default(now())
+  startTime   DateTime?
+  endTime     DateTime?
+  
+  // Relations
+  streamer   User     @relation(fields: [streamerId], references: [id])
+  donations  Donation[]
+  polls      Poll[]
+}
+
+model Donation {
+  id         String   @id @default(cuid())
+  from       String
+  to         String
+  amount     Float
+  message    String?
+  txSignature String  @unique
+  timestamp  DateTime @default(now())
+  isAnonymous Boolean? @default(false)
+  
+  // Relations
+  fromUser User @relation("DonationsFrom", fields: [from], references: [wallet])
+  toUser   User @relation("DonationsTo", fields: [to], references: [wallet])
+  stream   Stream? @relation(fields: [to], references: [streamerId])
+}
+
+model Poll {
+  id        String   @id @default(cuid())
+  question  String
+  options   Json     // Store options as JSON object
+  isActive  Boolean  @default(true)
+  streamId  String
+  createdAt DateTime @default(now())
+  
+  // Relations
+  stream Stream @relation(fields: [streamId], references: [id])
+}

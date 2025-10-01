@@ -1,0 +1,23 @@
+{
+  "name": "solana-programs",
+  "version": "1.0.0",
+  "description": "Solana smart contracts for the Stroomp platform",
+  "main": "index.js",
+  "scripts": {
+    "build": "anchor build",
+    "deploy": "anchor deploy",
+    "test": "anchor test"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "smart-contracts",
+    "defi",
+    "donation"
+  ],
+  "author": "Stroomp Team",
+  "license": "ISC",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.27.0"
+  }
+}
